@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/Azuki=bar/grpc-cpp-docker:${{ env.GIT_SHA }}
+          tags: ghcr.io/azuki-bar/grpc-cpp-docker:${{ env.GIT_SHA }}
