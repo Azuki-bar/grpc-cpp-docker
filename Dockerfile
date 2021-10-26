@@ -27,8 +27,8 @@ RUN  cd grpc \
       -DgRPC_BUILD_TESTS=OFF \
       -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
       ../.. 
-RUN cd && cd grpc && make -j
-RUN cd && cd grpc && make install 
+RUN cd && cd grpc/cmake/build && make -j
+RUN cd && cd grpc/cmake/build && make install 
 
 #RUN cd grpc \
  #   && bazel build:all
