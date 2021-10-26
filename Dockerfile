@@ -20,15 +20,15 @@ RUN   ./cmake-linux.sh -- --skip-license --prefix=$MY_INSTALL_DIR
 
 RUN git clone --recurse-submodules -b v1.41.0 https://github.com/grpc/grpc
 
-# RUN  cd grpc \
-# && mkdir -p cmake/build \
-# && cd cmake/build \
-# && cmake -DgRPC_INSTALL=ON \
-#      -DgRPC_BUILD_TESTS=OFF \
-#      -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
-#      ../.. \
-# && make -j \
-# && make install 
+RUN  cd grpc \
+ && mkdir -p cmake/build \
+ && cd cmake/build \
+ && cmake -DgRPC_INSTALL=ON \
+      -DgRPC_BUILD_TESTS=OFF \
+      -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
+      ../.. 
+RUN cd && cd grpc && make -j
+RUN cd && cd grpc && make install 
 
-RUN cd grpc \
-    && bazel build:all
+#RUN cd grpc \
+ #   && bazel build:all
